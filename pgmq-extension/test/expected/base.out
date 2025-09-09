@@ -577,11 +577,11 @@ SELECT msg_id = :first_msg_id FROM pgmq.pop('test_pop_queue');
  t
 (1 row)
 
-SELECT * from pgmq.pop('test_pop_queue', 10);
- msg_id | read_ct |          enqueued_at          |              vt               | message | headers
---------+---------+-------------------------------+-------------------------------+---------+---------
-      2 |       0 | 2025-09-09 20:03:57.961976+00 | 2025-09-09 20:03:57.962058+00 | 0       |
-      3 |       0 | 2025-09-09 20:03:57.964245+00 | 2025-09-09 20:03:57.964305+00 | 0       |
+SELECT msg_id  from pgmq.pop('test_pop_queue', 10);
+ msg_id 
+--------
+    2
+    3
 (2 rows)
 
 SELECT * from pgmq.send('test_pop_queue', '1');
@@ -602,12 +602,12 @@ SELECT * from pgmq.send('test_pop_queue', '3');
     6
 (1 row)
 
-SELECT * from pgmq.pop('test_pop_queue', 3);
- msg_id | read_ct |          enqueued_at          |              vt               | message | headers
---------+---------+-------------------------------+-------------------------------+---------+---------
-      4 |       0 | 2025-09-09 20:03:57.971415+00 | 2025-09-09 20:03:57.97151+00  | 1       |
-      6 |       0 | 2025-09-09 20:03:57.975432+00 | 2025-09-09 20:03:57.975481+00 | 3       |
-      5 |       0 | 2025-09-09 20:03:57.973577+00 | 2025-09-09 20:03:57.973647+00 | 2       |
+SELECT msg_id from pgmq.pop('test_pop_queue', 3);
+ msg_id 
+--------
+    4
+    6
+    5
 (3 rows)
 
 -- test_set_vt
