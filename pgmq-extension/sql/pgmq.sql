@@ -536,8 +536,8 @@ BEGIN
 END
 $$ LANGUAGE plpgsql;
 
--- pop: actual implementation
-CREATE FUNCTION pgmq.pop(queue_name TEXT, qty INTEGER)
+-- pop: implementation
+CREATE FUNCTION pgmq.pop(queue_name TEXT, qty INTEGER DEFAULT 1)
 RETURNS SETOF pgmq.message_record AS $$
 DECLARE
     sql TEXT;
@@ -562,14 +562,6 @@ BEGIN
         qtable, qtable
     );
     RETURN QUERY EXECUTE sql USING qty;
-END;
-$$ LANGUAGE plpgsql;
-
--- pop: a single message
-CREATE FUNCTION pgmq.pop(queue_name TEXT)
-RETURNS SETOF pgmq.message_record AS $$
-BEGIN
-    RETURN QUERY SELECT * FROM pgmq.pop(queue_name, 1);
 END;
 $$ LANGUAGE plpgsql;
 
