@@ -606,8 +606,8 @@ SELECT msg_id from pgmq.pop('test_pop_queue', 3);
  msg_id 
 --------
     4
-    6
     5
+    6
 (3 rows)
 
 -- test_set_vt
