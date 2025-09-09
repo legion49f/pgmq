@@ -210,11 +210,11 @@ SELECT * from pgmq.send('test_pop_queue', '0');
 
 SELECT msg_id = :first_msg_id FROM pgmq.pop('test_pop_queue');
 
-SELECT * from pgmq.pop('test_pop_queue', 10);
+SELECT msg_id from pgmq.pop('test_pop_queue', 10);
 SELECT * from pgmq.send('test_pop_queue', '1');
 SELECT * from pgmq.send('test_pop_queue', '2');
 SELECT * from pgmq.send('test_pop_queue', '3');
-SELECT * from pgmq.pop('test_pop_queue', 3);
+SELECT msg_id from pgmq.pop('test_pop_queue', 3);
 
 -- test_set_vt
 SELECT pgmq.create('test_set_vt_queue');
