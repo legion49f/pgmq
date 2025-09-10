@@ -577,7 +577,7 @@ SELECT msg_id = :first_msg_id FROM pgmq.pop('test_pop_queue');
  t
 (1 row)
 
-SELECT msg_id  from pgmq.pop('test_pop_queue', 10);
+SELECT msg_id from pgmq.pop('test_pop_queue', 10);
  msg_id 
 --------
       2
