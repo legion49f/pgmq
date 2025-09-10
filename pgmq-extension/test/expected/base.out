@@ -577,27 +577,27 @@ SELECT msg_id = :first_msg_id FROM pgmq.pop('test_pop_queue');
  t
 (1 row)
 
-SELECT msg_id  from pgmq.pop('test_pop_queue', 10);
+SELECT msg_id from pgmq.pop('test_pop_queue', 10);
  msg_id 
 --------
-    2
-    3
+      2
+      3
 (2 rows)
 
 SELECT * from pgmq.send('test_pop_queue', '1');
- send
+ send 
 ------
     4
 (1 row)
 
 SELECT * from pgmq.send('test_pop_queue', '2');
- send
+ send 
 ------
     5
 (1 row)
 
 SELECT * from pgmq.send('test_pop_queue', '3');
- send
+ send 
 ------
     6
 (1 row)
@@ -605,9 +605,9 @@ SELECT * from pgmq.send('test_pop_queue', '3');
 SELECT msg_id from pgmq.pop('test_pop_queue', 3);
  msg_id 
 --------
-    4
-    5
-    6
+      4
+      5
+      6
 (3 rows)
 
 -- test_set_vt
