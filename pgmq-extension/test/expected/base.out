@@ -585,19 +585,19 @@ SELECT msg_id from pgmq.pop('test_pop_queue', 10);
 (2 rows)
 
 SELECT * from pgmq.send('test_pop_queue', '1');
- send
+ send 
 ------
     4
 (1 row)
 
 SELECT * from pgmq.send('test_pop_queue', '2');
- send
+ send 
 ------
     5
 (1 row)
 
 SELECT * from pgmq.send('test_pop_queue', '3');
- send
+ send 
 ------
     6
 (1 row)
